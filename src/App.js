@@ -3,6 +3,7 @@ import "./App.css";
 import AutoComplete from "./components/autocomplete/Index";
 import { fetchData } from "./api/Api";
 import { options } from "./constants/OptionsData";
+import Card from "./components/card/Index";
 
 function App() {
   const [roles, setRoles] = useState([]);
@@ -12,13 +13,18 @@ function App() {
   const [techStack, setTechStack] = useState([]);
   const [minBasePay, setMinBasePay] = useState("");
   const [companyName, setCompanyName] = useState("");
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchDataWithOffset = async () => {
+    setIsLoading(true);
     try {
       const result = await fetchData(1);
-      console.log(result)
+      setData((prevData) => [...result?.jdList]);
     } catch (error) {
       console.error(error);
+    } finally {
+     setIsLoading(false);
     }
   };
 
@@ -28,6 +34,7 @@ function App() {
 
 
   return (
+    <div className="main">
       <div className="autocomplete-container">
         <AutoComplete
           width="150px"
@@ -85,6 +92,19 @@ function App() {
             className="companyname-input"
           />
         </div>
+        
+      </div>
+      <div className="cards-section"  >
+        {data?.map((value, index) => (
+            <Card {...value} />
+         
+        ))}
+        {isLoading && (
+      <div className="loading-overlay">
+        <p>Loading...</p>
+      </div>
+    )}
+      </div>
       </div>
   );
 }

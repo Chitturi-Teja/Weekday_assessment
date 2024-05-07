@@ -1,0 +1,159 @@
+.card {
+    max-width: 300px;
+    height: 550px;
+    box-shadow: 0 2px 5px rgba(87, 84, 84, 0.328);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .posted-ago {
+    font-size: 10px;
+    font-weight: 200;
+    border: 1px solid rgba(186, 184, 184, 0.328);
+    border-radius: 25px;
+    width: fit-content;
+    padding: 5px;
+  }
+  .company-logo {
+    width: 30px;
+    height: 40px;
+  }
+  .company-name {
+    font-weight: 350;
+    color: #8c8a8a;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  .company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .job-role {
+    font-size: 14px;
+    font-weight: 200;
+    text-transform: capitalize;
+  }
+  .company-details-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .job-location {
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .apply-button {
+    height: 30px;
+    background-color: #54efc3;
+    border: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: "Lexend" !important;
+    font-size: 15px;
+  }
+  .referral-button {
+    height: 30px;
+    background-color: #7572e4;
+    color: white;
+    border: none;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-family: "Lexend" !important;
+    font-size: 15px;
+    font-weight: 200;
+  }
+  
+  .estimated-salary {
+    color: #605f5f;
+    font-weight: 200;
+    font-size: 15px;
+  }
+  
+  .about-company {
+    font-weight: 350;
+  }
+  
+  .about-us {
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  
+  .min-experience-text {
+    color: #919191;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  
+  .min-experience-number{
+      font-weight: 200;
+      font-size: 14px;
+  }
+  
+  .min-experience {
+    display: flex;
+    flex-direction: column;
+    gap:5px
+  }
+  .about-details{
+      font-size: 14px;
+      font-weight: 250;
+  }
+  .sidebar-box {
+      max-height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sidebar-box .read-more { 
+      position: absolute; 
+      bottom: 0; 
+      left: 0;
+      width: 99.5%; 
+      text-align: center; 
+      height:100px;
+      margin: 0; 
+      background-image: linear-gradient(0deg,#ffffff 5%, hsla(0, 8%, 95%, 0) 100%)
+    }
+  
+  
+  .view-button{
+      text-decoration: none;
+      color: #7572e4;
+      font-weight: 300;
+      font-size: 12px;
+      bottom: 0;
+      position: absolute;
+      margin-left: -15px;
+    }
+    
+    .referral-logos{
+      width:30px;
+      height: 30px;
+      border-radius: 50%;
+      filter: blur(1px);
+    -webkit-filter: blur(1px);
+    }
