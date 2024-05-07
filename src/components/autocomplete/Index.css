@@ -1,0 +1,59 @@
+
+
+.css-clttge-MuiAutocomplete-root .MuiOutlinedInput-root {
+    border-radius: 3px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+    font-family: "Lexend";
+    max-width: 500px;
+  }
+  
+  .MuiChip-root {
+    font-size: 11px !important;
+    border-radius: 4px !important;
+    height: 20px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+  .css-clttge-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input{
+    padding: 5px !important;
+  }
+  .MuiChip-deleteIcon {
+    font-size: 20px !important;
+    color: black !important;
+    background-color: none !important;
+  }
+  
+   .menu-item {
+    font-family: "Lexend" !important;
+    font-size: 14px !important;
+    font-weight: lighter !important;
+    font-weight: 300 !important;
+  }
+  
+  .select-container{
+     display: flex;
+     flex-direction: column;
+     align-self: last baseline;
+  }
+  
+  .autocomplete{
+     align-self:last baseline ;
+  }
+  .autocomplete-title{
+      font-size: 13px;
+      margin-bottom: -1px;
+      font-weight: 400;
+  }
+  
+  .base-Popper-root .MuiAutocomplete-popper .css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper{
+    font-family: "Lexend" !important;
+    font-size: 14px !important;
+    font-weight: lighter !important;
+    font-weight: 200 !important;
+  }
+  
+  .MuiAutocomplete-hasPopupIcon.css-clttge-MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-hasClearIcon.css-clttge-MuiAutocomplete-root .MuiOutlinedInput-root{
+    padding-top:7px !important;
+    padding-bottom:7px !important
+  }
