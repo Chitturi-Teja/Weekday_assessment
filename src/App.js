@@ -44,7 +44,7 @@ function App() {
   useEffect(()=>{
     const processedData=filterData(data,roles,noOfEmployees,experience,location,techStack,minBasePay,companyName)
     setFilteredData(processedData)
-    if(filteredData?.length<8){
+    if(filteredData?.length<8 && data?.length!==0){
       setOffset((prevOffset) => prevOffset + 1);
       fetchDataWithOffset()
     }
