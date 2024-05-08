@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import "./App.css";
 import AutoComplete from "./components/autocomplete/Index";
 import { fetchData } from "./api/Api";
 import { options } from "./constants/OptionsData";
 import Card from "./components/card/Index";
+import { filterData } from "./constants/Constants";
 
 function App() {
   const [roles, setRoles] = useState([]);
@@ -15,26 +16,53 @@ function App() {
   const [companyName, setCompanyName] = useState("");
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [filteredData,setFilteredData]=useState([]);
+  const containerRef = useRef(null);
+  const prevOffset = useRef(-1);
+
+  useEffect(() => {
+    fetchDataWithOffset();
+  }, [offset]);
 
   const fetchDataWithOffset = async () => {
-    setIsLoading(true);
-    try {
-      const result = await fetchData(1);
-      setData((prevData) => [...result?.jdList]);
-    } catch (error) {
-      console.error(error);
-    } finally {
-     setIsLoading(false);
+    if (offset !== prevOffset.current) {
+    prevOffset.current = offset;
+      setIsLoading(true);
+      try {
+        const result = await fetchData(offset);
+        setData((prevData) => [...prevData, ...result?.jdList]);
+        
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
   useEffect(()=>{
-    fetchDataWithOffset()
-  },[])
+    const processedData=filterData(data,roles,noOfEmployees,experience,location,techStack,minBasePay,companyName)
+    setFilteredData(processedData)
+    if(filteredData?.length<8){
+      setOffset((prevOffset) => prevOffset + 1);
+      fetchDataWithOffset()
+    }
+  },[data,roles,noOfEmployees,experience,location,techStack,minBasePay,companyName, offset])
 
+  const handleScroll = () => {
+    const current = containerRef.current;
+    if (current) {
+      const { scrollTop, clientHeight, scrollHeight } = current;
+      const computedHeight = Math.round(scrollTop) + clientHeight;
+      if (scrollHeight >= computedHeight - 1 && scrollHeight <= computedHeight + 1) {
+        setOffset((prevOffset) => prevOffset + 1);
+      }
+    }
+  };
 
-  return (
-    <div className="main">
+  return(
+    <div className="main"  ref={containerRef} onScroll={handleScroll}>
       <div className="autocomplete-container">
         <AutoComplete
           width="150px"
@@ -95,7 +123,7 @@ function App() {
         
       </div>
       <div className="cards-section"  >
-        {data?.map((value, index) => (
+        {filteredData?.map((value, index) => (
             <Card {...value} />
          
         ))}
